@@ -1,15 +1,15 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "<h1>hello</h1>"
+    return render_template("index.html", page_name="index", page_num=2)
 
 
 @app.route("/home")
 def home():
-    return "<h1>home</h1>"
+    return render_template("home.html", number=5, data=[{'key':'value1'},{'key':'value2'},{'key':'value3'}])
 
 
 @app.route("/json")
